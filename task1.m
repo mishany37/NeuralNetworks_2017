@@ -7,6 +7,12 @@ X=[1.24,1.38,2.38,3.21,0.68];
 X=sort(X);
 x=xn:dx:xk;
 
+function yres=yCalc(x,a,b)
+  chisl = log(b^2 - x.^2)/log(a);
+  znam = (abs(x.^2 - a^2)).^(1/3);
+  yres = chisl./znam;
+end
+
 y1 = yCalc(x,a,b);
 y2 = yCalc(X,a,b);
 
@@ -22,8 +28,3 @@ plot(X,y2,'b-*','LineWidth',3)
 title('First lab part B')
 
 
-function yres=yCalc(x,a,b)
-  chisl = log(b^2 - x.^2)/log(a);
-  znam = (abs(x.^2 - a^2)).^(1/3);
-  yres = chisl./znam;
-end
